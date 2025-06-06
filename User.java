@@ -32,29 +32,46 @@ login();
 }
 
 public static void login() {
-    Scanner sc = new Scanner(System.in);
-    String username = "";
-    String password = "";
+Scanner sc = new Scanner(System.in);
+String username = "";
+String password = "";
 
-    try {
-        System.out.print("Enter username: ");
-        username = sc.nextLine();
-        if (username.isEmpty()) {
-            throw new InputMismatchException("Username cannot be empty");
-        }
-        if (!username.matches("[a-zA-Z]+")) {
-            throw new InputMismatchException("Username must contain letters only ");
-        }
+System.out.print("Enter username: ");
+try{
+username = sc.nextLine();
+if (!username.matches("[a-zA-Z]+")) {
+throw new InputMismatchException("Username must contain letters only , enter again ");
 
-        System.out.print("Enter password: ");
-        password = sc.nextLine();
+}
+if (username.isEmpty()) {
+  throw new InputMismatchException("Username cannot be empty");
+}
+}
 
-        if (password.isEmpty()) {
-            throw new InputMismatchException("Password cannot be empty");
-        }
-    } catch (InputMismatchException e) {
-        System.out.println("Error: " + e.getMessage());
-        return;
-    }
-  System.out.println("Login successful for user: " + username);
+catch(InputMismatchException e) {
+System.out.println("Error: " + e.getMessage());
+System.out.println("Username cannot be empty");
+System.out.println("Enter your username again");
+username = sc.nextLine();
+
+
+
+}
+
+
+System.out.print("Enter password: ");
+try{
+password = sc.nextLine();
+
+if (password.isEmpty()) {
+throw new InputMismatchException("Password cannot be empty");
 }}
+catch(InputMismatchException e) {
+System.out.println("Error: " + e.getMessage());
+System.out.println("Password cannot be empty");
+System.out.println("Enter your password again");
+password = sc.nextLine();
+}
+} 
+
+}

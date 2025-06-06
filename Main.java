@@ -193,9 +193,10 @@ else if(choice == 5 && userType == 1) {
 
 System.out.println("All books in the library are : ");
 Libraray.viewAllBooks();
-sc.nextLine();
-sc.nextLine();
 System.out.println("press 'Enter or any character' to display menu again");
+sc.nextLine();
+sc.nextLine();
+
 }
 
 else if(choice == 6) {
