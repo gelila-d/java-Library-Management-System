@@ -7,25 +7,55 @@ public class Main {
 public static void main(String[] args) {
 Scanner sc = new Scanner(System.in);
 LibraryMangement Libraray = new LibraryMangement();
+System.out.println("| Welcome to Library Management System |");
+System.out.println("Enter 1 if you are a Librarian");
+System.out.println("Enter any number if you are a User");
+int userType ;
+try{
+userType = sc.nextInt();}
+catch(Exception e) {
+	System.out.println("Please enter a  number");
+	return;
+}
 
+if(userType == 1) {
+	System.out.println("librarian login required");
+	User.login();}
+else{
+	System.out.println("User login required");
+	User.login();
+}
+
+while(true) {
+	clear.clearScreen();
 System.out.println("+--------------------------+");
 System.out.println("| Library Mangement System |");
 System.out.println("+--------------------------+\n");
 System.out.println("---------------------------------");
 
-System.out.println("Enter 1 for Add a new Book");
+System.out.println("Enter 1 for Returning a Book");
 System.out.println("Enter 2 for Searching a Book");
 System.out.println("Enter 3 for Issuing a Book");
-System.out.println("Enter 4 for Returning a Book");
+if(userType == 1) {
+		System.out.println("Enter 4 for Adding a Book");
+		System.out.println("Enter 5 to view all books");
+}
+System.out.println("Enter 6 to exit");
 
 System.out.println("---------------------------------");
 System.out.print("Please Enter your choice : ");
 
-int choice = sc.nextInt();
+int choice;
+try{
+choice = sc.nextInt();}
+catch(Exception e) {
+System.out.println("Please enter a valid number");
+return;
+}
 System.out.println("---------------------------------");
 
 
-if(choice == 1) {
+if(choice == 4 && userType == 1) {
 int ID , totalCopies;
 String Title , Publisher , Author;
 
@@ -49,9 +79,9 @@ String data = Integer.toString(ID)+"-"+Title+"-"+Publisher+
 		"-"+Author+"-"+Integer.toString(totalCopies)+"-"+Integer.toString(totalCopies);
 
 try {
-	
+
 	Libraray.addBook(data); //Adding the data
-	
+
 } catch (FileNotFoundException e) {
 	e.printStackTrace();
 }
@@ -97,13 +127,13 @@ if(x == 1) {
 	System.out.print("Enter book ID : ");
 	int bookID = sc.nextInt();
 	System.out.println("---------------------------------");
-	
+
 	Libraray.IssuingBook(bookID);
 	//Issuing the book given ID
-	
+
 	System.out.println("Book successfully issued");
 	System.out.println("Thank you!");
-	
+
 }
 else {
 		System.out.println("-------------------------------------------");
@@ -133,7 +163,7 @@ System.out.println("Thank you!");
 
 
 
-else if(choice == 4) {
+else if(choice == 1) {
 System.out.print("Enter book ID : ");
 int bookID = sc.nextInt();
 System.out.println("---------------------------------");
@@ -148,12 +178,19 @@ else {
 System.out.println("Thank you!");
 }
 
+else if(choice == 5 && userType == 1) {
 
 
+System.out.println("All books in the library are : ");
+Libraray.viewAllBooks();}
+
+else if(choice == 6) {
+	System.exit(0);}
 else {
 System.out.println("Enter valid choice");
 }
 
 }
 
+}
 }

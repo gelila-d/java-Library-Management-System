@@ -182,4 +182,17 @@ j++;
 return false;
 }
 
+public void viewAllBooks() {
+String fileName = "Book_Detail.txt";
+try (Scanner scanner = new Scanner(new File(fileName))) {
+    System.out.println("ID-Title-Publisher-Author-Total copies-Copies available");
+    while (scanner.hasNextLine()) {
+        String line = scanner.nextLine();
+        System.out.println(line);
+    }
+} catch (FileNotFoundException e) {
+    System.out.println("File not found: " + fileName);
+}
+}
+
 }
