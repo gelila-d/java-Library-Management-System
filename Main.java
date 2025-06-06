@@ -88,7 +88,9 @@ try {
 System.out.println("---------------------------------");
 System.out.println("Successfully book added");
 System.out.println("Thank you!");
-
+System.out.println("press 'Enter or any character' to display menu again");
+sc.nextLine();
+sc.nextLine();
 
 }
 
@@ -139,7 +141,9 @@ else {
 		System.out.println("-------------------------------------------");
 	System.out.println("Thank you!");
 }
-
+System.out.println("press 'Enter or any character ' to display menu again");
+sc.nextLine();
+sc.nextLine();
 }
 
 
@@ -158,6 +162,9 @@ else {
 	System.out.println("Book is not available");
 }
 System.out.println("Thank you!");
+System.out.println("press 'Enter  or any character' to display menu again");
+sc.nextLine();
+sc.nextLine();
 }
 
 
@@ -176,21 +183,33 @@ else {
 	System.out.println("This book ID is not valid");
 }
 System.out.println("Thank you!");
+System.out.println("press 'Enter or any character' to display menu again");
+sc.nextLine();
+sc.nextLine();
 }
 
 else if(choice == 5 && userType == 1) {
 
 
 System.out.println("All books in the library are : ");
-Libraray.viewAllBooks();}
+Libraray.viewAllBooks();
+sc.nextLine();
+sc.nextLine();
+System.out.println("press 'Enter or any character' to display menu again");
+}
 
 else if(choice == 6) {
 	System.exit(0);}
 else {
-System.out.println("Enter valid choice");
-}
+System.out.println(" please Enter valid choice");
+System.out.println("press 'Enter or any character' to display menu again");
+sc.nextLine();
+sc.nextLine();
 
 }
 
+
+
+}
 }
 }
